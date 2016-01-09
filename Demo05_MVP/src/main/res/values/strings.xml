@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">干货</string>
+    <string name="str_gank">干货</string>
+    <string name="tag_android">Android</string>
+    <string name="tag_ios">iOS</string>
+    <string name="tag_wealfare">福利</string>
+</resources>

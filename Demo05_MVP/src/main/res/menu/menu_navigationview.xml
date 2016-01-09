@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_goods"
+            android:checked="true"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/str_gank" />
+        <item
+            android:id="@+id/menu_welfare"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/tag_wealfare" />
+        <!--<item-->
+            <!--android:id="@+id/menu_today"-->
+            <!--android:icon="@mipmap/ic_launcher"-->
+            <!--android:title="今天" />-->
+    </group>
+</menu>

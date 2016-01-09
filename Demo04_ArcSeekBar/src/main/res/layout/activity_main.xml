@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f95808"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="me.honge.arcseekbar.MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="点我呀"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvText"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="text" />
+
+    <me.honge.arcseekbar.ArcSeekBar
+        android:id="@+id/asB"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        app:bgColor="@android:color/white"
+        app:fillType="absolute"
+        app:gravity="right"
+        app:progress_thumb="@mipmap/ic_launcher"
+        app:strokeWide="10"
+
+        />
+
+    <me.honge.arcseekbar.CircleSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:android_thumb="@mipmap/ic_launcher" />
+
+</RelativeLayout>
