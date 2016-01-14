@@ -34,6 +34,8 @@ public class GoodsListView extends FrameLayout implements GoodsMvpView, SwipeRef
     GoodsPresenter presenter;
     private boolean isFirst = true;
 
+    private boolean isLoading = false;
+
     public GoodsListView(Context context) {
         super(context);
         ((BaseActivity) context).getComponent().inject(this);
@@ -83,8 +85,9 @@ public class GoodsListView extends FrameLayout implements GoodsMvpView, SwipeRef
             super.onScrollStateChanged(recyclerView, newState);
             if (newState == RecyclerView.SCROLL_STATE_IDLE
                     && lastVisibleItem + 1 == adapter.getItemCount()
-                    && adapter.isShowFooter()) {
+                    && adapter.isShowFooter()&&!isLoading) {
                 presenter.loadMore();
+                isLoading = true;
             }
         }
 
@@ -101,24 +104,39 @@ public class GoodsListView extends FrameLayout implements GoodsMvpView, SwipeRef
         super.onAttachedToWindow();
         presenter.attachView(this);
         if (isFirst) {
-            onRefresh();
+//            presenter.loadMore();
+            adapter.setShowFooter(false);
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    isLoading = true;
+                    srlLayout.setRefreshing(true);
+                    presenter.refresh();
+                }
+            });
             isFirst = false;
         }
     }
 
     @Override
     public void onRefresh() {
-        srlLayout.setRefreshing(true);
-        presenter.refresh();
+
+        if (!isLoading) {
+            srlLayout.setRefreshing(true);
+            presenter.refresh();
+            isLoading = true;
+        }
     }
 
     @Override
     public void setRefreshComplete() {
+        isLoading = false;
         srlLayout.setRefreshing(false);
     }
 
     @Override
     public void setContent(ArrayList<GoodsModel> content, boolean needClear) {
+        isLoading = false;
         adapter.setShowFooter(true);
         adapter.setAndroidGoods(content, needClear);
         adapter.notifyDataSetChanged();
@@ -126,6 +144,7 @@ public class GoodsListView extends FrameLayout implements GoodsMvpView, SwipeRef
 
     @Override
     public void showErrorView() {
+        isLoading = false;
         adapter.setShowFooter(false);
     }
 
@@ -137,6 +156,7 @@ public class GoodsListView extends FrameLayout implements GoodsMvpView, SwipeRef
 
     @Override
     protected void onDetachedFromWindow() {
+        isLoading = false;
         presenter.detachView();
         KLog.e("onDetachedFromWindow");
         super.onDetachedFromWindow();
