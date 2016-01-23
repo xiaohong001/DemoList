@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sim号码修改</string>
+    <string name="actual_value">当前SIM号码:</string>
+    <string name="menu_settings">Settings</string>
+    <string name="new_number">新SIM号码:</string>
+    <string name="set_button">立即修改!</string>
+    <string name="empty">Empty</string>
+    <string name="preferences_saved">保存成功\n\n激活框架并且重启生效</string>
+    <string name="preferences_not_saved">没有保存成功\n请重试</string>
+    <string name="xposeddescription">改变你本机的SIM号码，只是防止非法应用获取</string>
+    <string name="xposedminversion">54</string>
+    <string name="need_permision">需要读取手机号码的权限，才能继续操作。</string>
+    <string name="permision_failed">授权失败，无法使用！</string>
+    <string name="hide_appicon">隐藏图标</string>
+    <string name="show_appicon">显示图标</string>
+</resources>

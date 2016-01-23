@@ -47,10 +47,11 @@ public class MyImageView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.e("TAG", "onDraw: " + drawables.size());
+
         if (drawables == null || drawables.size() == 0) {
             return;
         }
+        Log.e("TAG", "onDraw: " + drawables.size());
         int left = 0;
         int right = 0;
         int top = 0;
