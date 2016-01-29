@@ -10,6 +10,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.socks.library.KLog;
 
@@ -37,6 +38,7 @@ public class WelfareView extends FrameLayout implements WelfareMvpView, SwipeRef
     private boolean isFirst = true;
 
     private boolean isLoading = false;
+    private TextView tvTips;
 
     public WelfareView(Context context) {
         super(context);
@@ -58,6 +60,22 @@ public class WelfareView extends FrameLayout implements WelfareMvpView, SwipeRef
         super.onFinishInflate();
         srlLayout = (SwipeRefreshLayout) findViewById(R.id.srlLayout);
         srlLayout.setOnRefreshListener(this);
+
+        tvTips = (TextView) findViewById(R.id.tvTips);
+        tvTips.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.setShowFooter(false);
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        isLoading = true;
+                        srlLayout.setRefreshing(true);
+                        presenter.refresh();
+                    }
+                });
+            }
+        });
 
         rvContent = (RecyclerView) findViewById(R.id.rvContent);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -147,12 +165,11 @@ public class WelfareView extends FrameLayout implements WelfareMvpView, SwipeRef
         adapter.setShowFooter(true);
         adapter.setWelfares(content, needClear);
         adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void showErrorView() {
-        isLoading = false;
-        adapter.setShowFooter(false);
+        if (adapter.getItemCount() == 0){
+            showTipsView("暂时没有数据哦~");
+        }else {
+            hideTipsView();
+        }
     }
 
     @Override
@@ -163,5 +180,19 @@ public class WelfareView extends FrameLayout implements WelfareMvpView, SwipeRef
         super.onDetachedFromWindow();
     }
 
+    @Override
+    public void showTipsView(String tip) {
+        tvTips.setVisibility(VISIBLE);
+        rvContent.setVisibility(GONE);
+        tvTips.setText(tip);
+        isLoading = false;
+        adapter.setShowFooter(false);
+    }
+
+    @Override
+    public void hideTipsView() {
+        tvTips.setVisibility(GONE);
+        rvContent.setVisibility(VISIBLE);
+    }
 
 }

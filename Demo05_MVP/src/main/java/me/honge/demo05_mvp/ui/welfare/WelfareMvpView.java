@@ -10,6 +10,7 @@ import me.honge.demo05_mvp.ui.base.MvpView;
  */
 public interface WelfareMvpView extends MvpView {
     void setContent(ArrayList<GoodsModel> content, boolean needClear);
-    void showErrorView();
     void setRefreshComplete();
+    void showTipsView(String tip);
+    void hideTipsView();
 }

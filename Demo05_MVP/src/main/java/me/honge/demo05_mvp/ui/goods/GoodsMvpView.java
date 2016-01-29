@@ -11,6 +11,7 @@ import me.honge.demo05_mvp.ui.base.MvpView;
 public interface GoodsMvpView extends MvpView{
     void setRefreshComplete();
     void setContent(ArrayList<GoodsModel> content, boolean needClear);
-    void showErrorView();
     void openWithBrowser(String url);
+    void showTipsView(String tip);
+    void hideTipsView();
 }

@@ -1,7 +1,10 @@
 package me.honge.demo05_mvp.ui.goods;
 
+import android.accounts.NetworkErrorException;
+
 import com.socks.library.KLog;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -68,7 +71,16 @@ public class GoodsPresenter extends BasePresenter<GoodsMvpView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        getMvpView().showErrorView();
+
+                        if (e instanceof UnknownHostException){
+                            getMvpView().showTipsView("网络错误,点击重试");
+                        }else {
+                            getMvpView().showTipsView(e.toString());
+                        }
+
+                        if (isRefresh) {
+                            getMvpView().setRefreshComplete();
+                        }
                     }
 
                     @Override
