@@ -2,6 +2,7 @@ package me.honge.demo05_mvp.ui.welfare;
 
 import com.socks.library.KLog;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -66,7 +67,15 @@ public class WelfarePresenter extends BasePresenter<WelfareView> {
                     @Override
                     public void onError(Throwable e) {
                         KLog.e();
-                        getMvpView().showErrorView();
+                        if (e instanceof UnknownHostException){
+                            getMvpView().showTipsView("网络错误,点击重试");
+                        }else {
+                            getMvpView().showTipsView(e.toString());
+                        }
+
+                        if (isRefresh) {
+                            getMvpView().setRefreshComplete();
+                        }
                     }
 
                     @Override
