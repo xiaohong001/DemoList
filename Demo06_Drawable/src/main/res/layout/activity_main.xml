@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BitmapDrawable" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_bitmap" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ShapeDrawable" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_shape" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LayerListDrawable" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_layer_list" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="StateListDrawable" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_state"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LevelListDrawable" />
+
+        <View
+            android:id="@+id/vLevel"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_level_list" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TransitionDrawable" />
+
+        <View
+            android:id="@+id/vTransition"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_transition" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="InsetDrawable" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_inset" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ScaleDrawable" />
+
+        <View
+            android:id="@+id/vScale"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_scale" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ClipDrawable" />
+
+        <View
+            android:id="@+id/vClip"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/drawable_clip" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CustomerDrawable" />
+
+        <View
+            android:id="@+id/vCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+
+    </LinearLayout>
+</ScrollView>
