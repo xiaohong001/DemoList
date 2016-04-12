@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android' //添加这行代码
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin' // 注明Kotlin路径
+    }
+    defaultConfig {
+        applicationId "me.honge.demo09_password"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile rootProject.ext.libSupportAppcompat
+    compile rootProject.ext.libSupportRecyclerview
+    compile rootProject.ext.libSupportDesign
+    compile rootProject.ext.libSupportCardView
+    compile rootProject.ext.libSupportV4
+    compile rootProject.ext.libSqlbrite
+    compile rootProject.ext.libSwipeToLoadLayout
+    compile rootProject.ext.libMaterialloadingprogressbar
+    compile rootProject.ext.libRxAndroid
+    compile rootProject.ext.libRxJava
+    compile rootProject.ext.libKotlin
+}
+repositories {
+    maven { url "https://jitpack.io" }
+}

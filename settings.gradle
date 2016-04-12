@@ -1,2 +1,2 @@
-/*':Demo01_Rxdemo', ':Demo02_IntentService', ':Demo03_IPCdemo', ':Demo04_ArcSeekBar',':Demo05_MVP',':Demo06_Drawable',':Demo07_XposedSimChanger'*/
-include ':Demo08_Animation'
+/**/
+include ':Demo01_Rxdemo', ':Demo02_IntentService', ':Demo03_IPCdemo', ':Demo04_ArcSeekBar',':Demo05_MVP',':Demo06_Drawable',':Demo07_XposedSimChanger',':Demo08_Animation', ':Demo09_PassWord'
